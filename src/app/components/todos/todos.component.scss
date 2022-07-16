@@ -1,0 +1,94 @@
+.todos {
+    max-width: 600px;
+    width: 100%;
+}
+
+.presentation-text {
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 20%;
+    font-weight: 550;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #DDD;
+
+    &:last-of-type {
+        border-bottom: 0;
+    }
+
+    .status {
+        margin-right: 10px;
+
+        cursor: pointer;
+    }
+
+    .content {
+        flex: 1 1 100%;
+    }
+
+    &.done {
+        opacity: 50%;
+    }
+
+    &-input {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        appearance: none;
+        border: none;
+        background-color: #f3f3f3;
+        margin-top: 15px;
+        font-size: 20px;
+        outline: none;
+    }
+
+    &-submit {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        appearance: none;
+        border: none;
+        outline: none;
+        background: none;
+
+        background-color: #fe4880;
+        color: #fff;
+        margin: 15px auto;
+
+        padding: 10px 15px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    .icons {
+        font-size: 23px;
+    }
+
+    .delete {
+        opacity: 0%;
+        transition: .2s;        
+    }
+
+    &:hover .delete {
+        opacity: 100%;
+
+        cursor: pointer;
+    }
+}
+
+.add-todo {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    cursor: pointer;
+
+    font-size: 35px;
+    color: red;
+    border-radius: 50%;
+}
+
