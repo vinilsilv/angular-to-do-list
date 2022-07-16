@@ -1,0 +1,12 @@
+<div [ngClass]="isVisible ?'add-wrapper show': 'add-wrapper' ">
+  <form (submit)="sendNewTodo()">
+    <input
+      type="text"
+      name="inputTodo"
+      placeholder="Enter your task name..."
+      class="todo-input"
+      [(ngModel)]="inputTodo"
+    />
+    <input type="submit" value="Add todo" class="todo-submit" />
+  </form>
+</div>

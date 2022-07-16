@@ -1,0 +1,20 @@
+<div class="todos">
+  <p class="presentation-text">Your tasks</p>
+
+  <div
+    *ngFor="let todo of todos; let i = index"
+    class="todo {{ todo.completed ? 'done' : '' }}"
+  >
+    <div class="status">
+        <fa-icon *ngIf="!todo.completed" [icon]="faToDo" class="icons"></fa-icon>
+        <fa-icon *ngIf="todo.completed" [icon]="faDone" class="icons"></fa-icon>
+    </div>
+    
+    <div class="content" (click)="toggleDone(i)">{{ todo.content }}</div>
+    <fa-icon [icon]="faDelete" class="delete icons" (click)="deleteTodo(i)">Remove</fa-icon>
+  </div>
+
+  <fa-icon class="add-todo" [icon]="faAdd" (click)="newTodo()"></fa-icon>
+  <app-add-todo [isVisible]="showAdd" (todoEvent)="addTodo($event)"></app-add-todo>
+    
+</div>
