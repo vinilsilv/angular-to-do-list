@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { faCircleCheck, faCircleDot, faCirclePlus, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCircleCheck,
+  faCirclePlus,
+  faCircleXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { TodoModel } from 'src/app/models/todo.model';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.scss']
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
-
-  inputTodo: string = "";
+  inputTodo: string = '';
 
   faDelete = faCircleXmark;
   faToDo = faCircle;
@@ -18,7 +21,7 @@ export class TodosComponent implements OnInit {
   faAdd = faCirclePlus;
 
   showAdd: boolean = false;
-  
+
   public todos: Array<TodoModel> = [
     {
       content: 'First todo',
@@ -27,20 +30,19 @@ export class TodosComponent implements OnInit {
     {
       content: 'Second todo',
       completed: true,
-    }
+    },
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public toggleDone(id: number) {
     this.todos.map((v, i) => {
       if (i == id) v.completed = !v.completed;
 
-      return v
-    })
+      return v;
+    });
   }
 
   public deleteTodo(id: number) {
@@ -49,17 +51,18 @@ export class TodosComponent implements OnInit {
 
   public addTodo(newTodo: string) {
     this.showAdd = false;
-    
+
+    if (newTodo == '') {
+      return;
+    }
+
     this.todos.push({
       content: newTodo,
       completed: false,
-    })
-
+    });
   }
 
-  public newTodo(){
-    console.log('working')
+  public newTodo() {
     this.showAdd = true;
   }
-
 }

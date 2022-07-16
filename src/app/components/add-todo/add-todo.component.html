@@ -1,12 +1,16 @@
-<div [ngClass]="isVisible ?'add-wrapper show': 'add-wrapper' ">
-  <form (submit)="sendNewTodo()">
+<div [ngClass]="isVisible ? 'add-wrapper show' : 'add-wrapper'">
+  <p class="add-task">Add new task</p>
+  
     <input
       type="text"
       name="inputTodo"
-      placeholder="Enter your task name..."
+      placeholder="Insert your new task here"
       class="todo-input"
       [(ngModel)]="inputTodo"
-    />
-    <input type="submit" value="Add todo" class="todo-submit" />
-  </form>
+    /> 
+    <div class="confirm-cancel">
+      <button (click)="cancel()" class="todo-btn cancel">Cancel</button>
+      <button (click)="sendNewTodo()" [disabled]="inputTodo == ''" class="todo-btn send">Add task</button>
+    </div>
+    
 </div>
